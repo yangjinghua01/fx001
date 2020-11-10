@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function get(){
+        var a=document.getElementById("all")
+        console.log(a)
+    }
+    function post(){
+        var b=document.getElementsByName("book")
+        console.log(b)
+    }
+    function put(){
+        var c= document.getElementsByTagName("intput")
+        console.log(c)
+    }
+    function checkall(){
+        var b=document.getElementsByName("book")
+        var a=document.getElementById("all")
+        for (i=0;i<b.length;i++){
+            if (a.checked)
+                b[i].checked=true
+            else b[i].checked=false
+        }
+    }
+    function singlecheck(){
+        var b=document.getElementsByName("book")
+        var a=document.getElementById("all")
+        j=0
+        for (i=0;i<b.length;i++) {
+            if(b[i].checked){
+                j++
+                if(j==4)
+                    a.checked=true
+            }
+            else
+                a.checked=false
+        }
+    }
+</script>
+<body>
+<input type="checkbox" id="all" name="allcheck" onclick="checkall()">全选</input><br>
+<input type="checkbox"id="a1"name="book" onclick="singlecheck()">第一本书</input>
+<input type="checkbox"id="a2"name="book" onclick="singlecheck()">第二本书</input>
+<input type="checkbox"id="a3"name="book"onclick="singlecheck()">第三本书</input>
+<input type="checkbox"id="a4"name="book"onclick="singlecheck()">第四本书</input><br>
+<input type="button" value="输出id为all的元素"onclick="get()">
+<input type="button" value="输出那么为book的元素"onclick="post()">
+<input type="button" value="输出元素名称为input的元素"onclick="put()">
+</body>
+</html>
